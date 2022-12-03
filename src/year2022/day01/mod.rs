@@ -3,12 +3,14 @@ const INPUT: &str = include_str!("./input.txt");
 pub fn solve() {
     let elves = INPUT.split("\n\n");
 
-    let mut elf_totals: Vec<u32> = elves.map(|elf_values| {
+    let mut elf_totals: Vec<u32> = elves
+        .map(|elf_values| {
             elf_values
                 .lines()
                 .map(|line| line.parse::<u32>().unwrap())
                 .sum::<u32>()
-        }).collect();
+        })
+        .collect();
 
     elf_totals.sort();
     let part1 = elf_totals.last().unwrap();
